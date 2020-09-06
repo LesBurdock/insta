@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./index.css";
+import { CardDataMap } from "./components/CardDataMap";
+import { getCardData } from "./data/getCardData";
 
-function App() {
+// we always save data to state!
+// we always import data into the parent and then use throughout the app where needed.
+// so there is just one pipe with all the data.
+export default function App() {
+  const [cardData, setCardData] = useState(getCardData);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CardDataMap data={cardData}></CardDataMap>
     </div>
   );
 }
 
-export default App;
+// export default App;
